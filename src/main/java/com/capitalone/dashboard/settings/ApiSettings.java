@@ -51,6 +51,11 @@ public class ApiSettings {
     private Map<String,String> performance;
     private String unit;
 
+
+
+    private String FF4JFeatureCollection;
+    private String FF4JPropertiesCollection;
+
     public Map<String, String> getFunctional() {
         return functional;
     }
@@ -197,6 +202,22 @@ public class ApiSettings {
 
     public void setDataSyncSettings(DataSyncSettings dataSyncSettings) {
         this.dataSyncSettings = dataSyncSettings;
+    }
+
+    public String getFF4JFeatureCollection() {
+        return FF4JFeatureCollection;
+    }
+
+    public void setFF4JFeatureCollection(String FF4JFeatureCollection) {
+        this.FF4JFeatureCollection = FF4JFeatureCollection;
+    }
+
+    public String getFF4JPropertiesCollection() {
+        return FF4JPropertiesCollection;
+    }
+
+    public void setFF4JPropertiesCollection(String FF4JPropertiesCollection) {
+        this.FF4JPropertiesCollection = FF4JPropertiesCollection;
     }
 
 }

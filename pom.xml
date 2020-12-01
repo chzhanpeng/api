@@ -77,6 +77,7 @@
         <jjwt.version>0.6.0</jjwt.version>
         <springfox.version>2.4.0</springfox.version>
         <assertj.version>3.9.0</assertj.version>
+        <ff4j.version>1.8.11</ff4j.version>
 
         <!-- Plugins -->
         <apache.rat.plugin.version>0.13</apache.rat.plugin.version>
@@ -157,6 +158,35 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <!-- FF4J -->
+        <dependency>
+            <groupId>org.ff4j</groupId>
+            <artifactId>ff4j-spring-boot-starter</artifactId>
+            <version>${ff4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ff4j</groupId>
+            <artifactId>ff4j-web</artifactId>
+            <scope>test</scope>
+            <version>${ff4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ff4j</groupId>
+            <artifactId>ff4j-store-mongodb-v3</artifactId>
+            <version>1.8.10</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.mongodb</groupId>
+                    <artifactId>mongo-java-driver</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>3.12.7</version>
         </dependency>
 
         <!-- JWT -->

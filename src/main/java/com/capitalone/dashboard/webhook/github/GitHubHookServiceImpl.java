@@ -9,6 +9,7 @@ import com.capitalone.dashboard.repository.GitRequestRepository;
 import com.capitalone.dashboard.service.CollectorService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.ff4j.FF4j;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,9 @@ public class GitHubHookServiceImpl implements GitHubHookService {
     private final CollectorService collectorService;
     protected final ApiSettings apiSettings;
     protected final RestClient restClient;
+
+    @Autowired
+    private FF4j ff4j;
 
     @Autowired
     public GitHubHookServiceImpl(CommitRepository commitRepository,
@@ -70,6 +74,10 @@ public class GitHubHookServiceImpl implements GitHubHookService {
                 break;
 
             case Issues:
+                if(ff4j.getFeature("feature_reject_issue").isEnable()) {
+                    LOG.info("Reject issue payload");
+                    return "Reject issue payload";
+                }
                 gitHubv3 = new GitHubIssueV3(collectorService, restClient, gitRequestRepository, collectorItemRepository, apiSettings);
                 break;
 
